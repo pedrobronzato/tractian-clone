@@ -236,5 +236,9 @@
         }
       }
     }
+  },
+  "common": {
+    "login": "Login",
+    "getDemo": "Solicita una demo"
   }
 }

@@ -2,48 +2,31 @@
 import { getNavigationItems } from '@/content/Header';
 import DropdownButton from '../common/DropdownButton';
 import Logo from '../common/logo';
-import { useState, useTransition } from 'react';
+import { useState } from 'react';
 import DropdownMenuButton from '../common/DropdownMenuButton';
 import GlobeIcon from '@/content/icons/GlobeIcon';
 import Button from '../common/Button';
 import Link from '../common/Link';
 import MenuIcon from '@/content/icons/MenuIcon';
 import HeaderMenu from './HeaderMenu';
-import { useRouter, usePathname } from '@/i18n/navigation';
-import { routing } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
+import HeaderMenuMobile from './HeaderMenuMobile';
+import { useLocaleOptions } from '@/hooks/locale';
+import LanguageSelector from '../common/LanguageSelector';
 
 export default function Header() {
   const [selected, setSelected] = useState<string | null>(
     null,
   );
-  const [, startTransition] = useTransition();
-  const router = useRouter();
-  const pathname = usePathname();
+  const [openMobileMenu, setOpenMobileMenu] =
+    useState(false);
   const t = useTranslations();
   const navigationItems = getNavigationItems(t);
+  const localeOptions = useLocaleOptions();
 
   const handleSelect = (id: string) => {
     setSelected(selected === id ? null : id);
   };
-
-  const handleLocaleChange = (newLocale: string) => {
-    startTransition(() => {
-      router.replace(pathname, { locale: newLocale });
-    });
-  };
-
-  const localeLabels: Record<string, string> = {
-    pt: 'Português (Brasil)',
-    en: 'English (United States)',
-    es: 'Español (México)',
-  };
-
-  const localeOptions = routing.locales.map((loc) => ({
-    id: loc,
-    label: localeLabels[loc] || loc,
-    onClick: () => handleLocaleChange(loc),
-  }));
 
   return (
     <nav className="duration-default sticky top-0 z-40 flex w-full flex-col items-center justify-center border-b border-slate-200 bg-slate-100 transition-colors ease-in-out">
@@ -67,19 +50,16 @@ export default function Header() {
             </div>
           </section>
           <section className="flex items-center gap-x-8 lg:gap-4 xl:gap-x-8">
-            <DropdownMenuButton
-              icon={<GlobeIcon />}
-              options={localeOptions}
-            />
+            <LanguageSelector />
             <Link
               href="https://app.tractian.com/login"
               className="lg:hidden"
             >
-              Login
+              {t('common.login')}
             </Link>
             <Button
               variant="outline"
-              label="Get Demo"
+              label={t('common.getDemo')}
               onClick={() => {
                 console.log('Login');
               }}
@@ -88,12 +68,24 @@ export default function Header() {
         </div>
         <div className="flex w-full items-center justify-between lg:hidden">
           <Logo />
-          <div className="flex h-10 w-10 items-center justify-center">
+          <div
+            className="flex h-10 w-10 items-center justify-center"
+            onClick={() =>
+              setOpenMobileMenu(!openMobileMenu)
+            }
+          >
             <MenuIcon />
           </div>
         </div>
       </div>
       <HeaderMenu selected={selected} />
+      <div className="w-full overflow-hidden transition-all duration-150 lg:hidden">
+        <HeaderMenuMobile
+          open={openMobileMenu}
+          navigationItems={navigationItems}
+          t={t}
+        />
+      </div>
     </nav>
   );
 }

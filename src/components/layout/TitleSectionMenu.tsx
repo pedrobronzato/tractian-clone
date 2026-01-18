@@ -12,17 +12,19 @@ export default function TitleSectionMenu({
       {content.map((section) => (
         <div
           key={section.section}
-          className="animate__animated animate__fadeIn animate__fast flex w-full flex-col gap-6 border-l border-slate-300 pl-4"
+          className="lg:animate__animated lg:animate__fadeIn lg:animate__fast flex w-full flex-col gap-4 lg:gap-6 lg:border-l lg:border-slate-300 lg:pl-4"
         >
           <DetailedLink
             icon={<section.icon />}
+            href={section.href}
             title={section.section}
             sectionTitle
           />
-          <div className="flex w-full flex-col gap-4">
+          <div className="ml-4 flex w-full flex-col gap-3 lg:ml-0 lg:gap-4">
             {section.items.map((item) => (
               <DetailedLink
                 key={item.title}
+                href={item.href}
                 icon={<item.icon />}
                 title={item.title}
                 subtitle={item.description}

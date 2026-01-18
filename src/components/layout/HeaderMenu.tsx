@@ -1,13 +1,5 @@
-import {
-  getCompanySectionMenuContent,
-  getPricingSectionMenuContent,
-  getResourcesSectionMenuContent,
-  getSolutionsSectionMenuContent,
-  getWeserveSectionMenuContent,
-} from '@/content/HeaderMenu';
-import SectionMenu from './SectionMenu';
-import TitleSectionMenu from './TitleSectionMenu';
 import { useTranslations } from 'next-intl';
+import { getMenuConfig } from '@/content/MenuConfig';
 
 interface MenuConfig {
   component: React.ReactNode;
@@ -21,48 +13,7 @@ export default function HeaderMenu({
 }) {
   const t = useTranslations();
 
-  const menuConfig: Record<string, MenuConfig> = {
-    solutions: {
-      component: (
-        <TitleSectionMenu
-          content={getSolutionsSectionMenuContent(t)}
-        />
-      ),
-      maxWidth: 'full',
-    },
-    'who-we-serve': {
-      component: (
-        <SectionMenu
-          content={getWeserveSectionMenuContent(t)}
-        />
-      ),
-      maxWidth: 'full',
-    },
-    resources: {
-      component: (
-        <SectionMenu
-          content={getResourcesSectionMenuContent(t)}
-        />
-      ),
-      maxWidth: 'constrained',
-    },
-    company: {
-      component: (
-        <SectionMenu
-          content={getCompanySectionMenuContent(t)}
-        />
-      ),
-      maxWidth: 'constrained',
-    },
-    pricing: {
-      component: (
-        <SectionMenu
-          content={getPricingSectionMenuContent(t)}
-        />
-      ),
-      maxWidth: 'constrained',
-    },
-  };
+  const menuConfig = getMenuConfig(t);
 
   if (!selected || !menuConfig[selected]) return null;
 
@@ -77,7 +28,7 @@ export default function HeaderMenu({
   return (
     <div
       key={selected}
-      className="absolute top-0 left-0 z-50 mt-[70px] w-full px-2 sm:px-0 lg:left-0 lg:ml-0"
+      className="absolute top-0 left-0 z-50 mt-[70px] hidden w-full px-2 sm:px-0 lg:left-0 lg:ml-0 lg:block"
     >
       <div
         className={`relative ${isConstrained ? '' : 'bg-slate-50 shadow-lg lg:px-2'}`}

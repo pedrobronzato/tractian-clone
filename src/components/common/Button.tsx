@@ -6,6 +6,7 @@ interface ButtonProps {
   variant?: 'outline' | 'filled';
   icon?: ReactNode;
   disabled?: boolean;
+  fullWidth?: boolean;
 }
 
 export default function Button({
@@ -14,9 +15,9 @@ export default function Button({
   variant = 'filled',
   icon,
   disabled = false,
+  fullWidth = false,
 }: ButtonProps) {
-  const baseStyles =
-    'max-w-fit rounded-sm w-full transition ease-in-out duration-150 disabled:cursor-not-allowed text-center text-body-md px-4 py-2';
+  const baseStyles = `${fullWidth ? 'w-full' : 'max-w-fit'} rounded-sm w-full transition ease-in-out duration-150 disabled:cursor-not-allowed text-center text-body-md px-4 py-2`;
 
   const variantStyles = {
     outline:

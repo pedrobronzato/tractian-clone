@@ -7,7 +7,6 @@ import {
   ReactNode,
 } from 'react';
 import ArrowDownIcon from '../../content/icons/ArrowDownIcon';
-import { useLocale } from 'next-intl';
 
 export interface MenuOption {
   id: string;
@@ -18,15 +17,16 @@ export interface MenuOption {
 interface DropdownMenuButtonProps {
   icon: ReactNode;
   options: MenuOption[];
+  currentSelected: string;
 }
 
 export default function DropdownMenuButton({
   icon,
   options,
+  currentSelected,
 }: DropdownMenuButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const locale = useLocale();
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -87,7 +87,8 @@ export default function DropdownMenuButton({
       {isOpen && (
         <div className="duration-default text-body-sm xl:text-body-md absolute top-10 left-0 z-[1000] flex w-full flex-col items-center rounded-sm border border-slate-300 bg-slate-50 p-2 text-slate-500 transition-opacity ease-in-out lg:top-8 lg:left-[.75rem] lg:w-auto lg:border-2">
           {options.map((option) => {
-            const isSelected = option.id === locale;
+            const isSelected =
+              option.id === currentSelected;
             return (
               <button
                 key={option.id}

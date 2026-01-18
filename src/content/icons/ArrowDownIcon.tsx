@@ -1,10 +1,14 @@
-export default function ArrowDownIcon() {
+export default function ArrowDownIcon({
+  className,
+}: {
+  className?: string;
+}) {
   return (
     <svg
       viewBox="0 0 22 13"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="pointer-events-none h-3 w-3 text-slate-500 group-hover:text-blue-600"
+      className={`pointer-events-none h-3 w-3 text-slate-500 group-hover:text-blue-600 ${className}`}
     >
       <path
         fillRule="evenodd"

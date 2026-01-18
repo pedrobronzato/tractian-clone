@@ -346,6 +346,8 @@ export interface SectionMenuContent {
     title: string;
     imgUrl?: string;
     icon?: () => React.ReactNode;
+    href: string;
+    customHref?: boolean;
   }[];
 }
 
@@ -366,24 +368,28 @@ export const getWeserveSectionMenuContent = (
             `${weServeKeys.byRole}.items.plantManager`,
           ),
           icon: PersonIcon,
+          href: '/who-we-serve/plant-manager',
         },
         {
           title: t(
             `${weServeKeys.byRole}.items.reliabilityEngineer`,
           ),
           icon: PersonIcon,
+          href: '/who-we-serve/reliability-engineer',
         },
         {
           title: t(
             `${weServeKeys.byRole}.items.maintenanceEngineer`,
           ),
           icon: PersonIcon,
+          href: '/who-we-serve/maintenance-engineer',
         },
         {
           title: t(
             `${weServeKeys.byRole}.items.manufacturingEngineer`,
           ),
           icon: PersonIcon,
+          href: '/who-we-serve/manufacturing-engineer',
         },
       ],
     },
@@ -395,56 +401,66 @@ export const getWeserveSectionMenuContent = (
             `${weServeKeys.bySector}.items.automotive`,
           ),
           icon: CarIcon,
+          href: '/industry/automotive',
         },
         {
           title: t(
             `${weServeKeys.bySector}.items.chemicals`,
           ),
           icon: ChemicalIcon,
+          href: '/industry/chemical',
         },
         {
           title: t(
             `${weServeKeys.bySector}.items.facilities`,
           ),
           icon: HandshakeIcon,
+          href: '/industry/facilities-maintenance-software',
         },
         {
           title: t(`${weServeKeys.bySector}.items.fleet`),
           icon: TruckIcon,
+          href: '/industry/fleet-maintenance-software',
         },
         {
           title: t(
             `${weServeKeys.bySector}.items.foodBeverage`,
           ),
           icon: FoodIcon,
+          href: '/industry/food-and-beverage',
         },
         {
           title: t(
             `${weServeKeys.bySector}.items.heavyEquipment`,
           ),
           icon: HequipamentIcon,
+          href: '/industry/heavy-equipment-maintenance-software',
         },
         {
           title: t(
             `${weServeKeys.bySector}.items.manufacturing`,
           ),
           icon: OperatorIcon,
+          href: '/industry/manufacturing-maintenance-software',
         },
         {
           title: t(
             `${weServeKeys.bySector}.items.millsAgriculture`,
           ),
           icon: PlantIcon,
+          href: '/industry/mills-and-agriculture',
         },
         {
           title: t(
             `${weServeKeys.bySector}.items.miningMetals`,
           ),
           icon: MiningIcon,
+          href: '/industry/mining-sector',
         },
         {
           title: t(`${weServeKeys.bySector}.items.oilGas`),
           icon: GasIcon,
+          href: '/industry/oil-and-gas-maintenance-software',
         },
       ],
     },
@@ -468,42 +484,50 @@ export const getResourcesSectionMenuContent = (
             `${resourcesKeys.center}.items.caseStudies`,
           ),
           icon: IndustryIcon,
+          href: '/case-studies',
         },
         {
           title: t(`${resourcesKeys.center}.items.ebooks`),
           icon: BookIcon,
+          href: '/resources',
         },
         {
           title: t(`${resourcesKeys.center}.items.blog`),
           icon: BlogIcon,
+          href: '/blog',
         },
         {
           title: t(
             `${resourcesKeys.center}.items.templates`,
           ),
           icon: PageIcon,
+          href: '/resources',
         },
         {
           title: t(
             `${resourcesKeys.center}.items.calculators`,
           ),
           icon: CalendarIcon,
+          href: '/resources/calculators/maintenance-calculators',
         },
         {
           title: t(
             `${resourcesKeys.center}.items.eventsWebinars`,
           ),
           icon: MegaphoneIcon,
+          href: '/events/hub',
         },
         {
           title: t(`${resourcesKeys.center}.items.sops`),
           icon: WrenchCheckIcon,
+          href: '/assets',
         },
         {
           title: t(
             `${resourcesKeys.center}.items.chatgptPlugins`,
           ),
           icon: AiIcon,
+          href: '/resources/ai-agents',
         },
       ],
     },
@@ -515,16 +539,22 @@ export const getResourcesSectionMenuContent = (
             `${resourcesKeys.hub}.items.productUpdates`,
           ),
           icon: MegaphoneIcon,
+          href: 'https://releases.tractian.com/',
+          customHref: true,
         },
         {
           title: t(
             `${resourcesKeys.hub}.items.tractianAcademy`,
           ),
           icon: EducationIcon,
+          customHref: true,
+          href: 'https://academy.tractian.com/',
         },
         {
           title: t(`${resourcesKeys.hub}.items.helpCenter`),
           icon: HelpIcon,
+          href: 'https://faq.tractian.com/',
+          customHref: true,
         },
       ],
     },
@@ -548,16 +578,20 @@ export const getCompanySectionMenuContent = (
           title: t(`${companyKeys.about}.items.aboutUs`),
           imgUrl:
             '/website/components/navbar/general/about.png',
+          href: '/about',
         },
         {
           title: t(`${companyKeys.about}.items.careers`),
           imgUrl:
             '/website/components/navbar/general/careers.png',
+          href: 'https://careers.tractian.com/',
+          customHref: true,
         },
         {
           title: t(`${companyKeys.about}.items.newsroom`),
           imgUrl:
             '/website/components/navbar/general/newsroom.png',
+          href: '/press',
         },
       ],
     },
@@ -567,16 +601,20 @@ export const getCompanySectionMenuContent = (
         {
           title: t(`${companyKeys.others}.items.contactUs`),
           icon: ContactIcon,
+          href: '/contact',
         },
         {
           title: t(`${companyKeys.others}.items.referrals`),
           icon: ReferralsIcon,
+          href: '/referrals',
         },
         {
           title: t(
             `${companyKeys.others}.items.trustCenter`,
           ),
           icon: TrustIcon,
+          href: 'https://trust.tractian.com/',
+          customHref: true,
         },
       ],
     },
@@ -595,6 +633,7 @@ export const getPricingSectionMenuContent = (
         {
           title: t(`${pricingKey}.conditionMonitoring`),
           icon: MonitoringIcon,
+          href: '/solutions/condition-monitoring/vibration-sensor/pricing',
         },
       ],
     },
@@ -604,6 +643,7 @@ export const getPricingSectionMenuContent = (
         {
           title: t(`${pricingKey}.cmmsSoftware`),
           icon: ComputerIcon,
+          href: '/solutions/cmms/pricing',
         },
       ],
     },
