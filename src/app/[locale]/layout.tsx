@@ -1,7 +1,33 @@
-export default function LocaleLayout({
+import { routing } from '@/i18n/routing';
+import {
+  hasLocale,
+  NextIntlClientProvider,
+} from 'next-intl';
+import { setRequestLocale } from 'next-intl/server';
+import { notFound } from 'next/navigation';
+import { interTight, inter } from '../fonts';
+
+export default async function LocaleLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <>{children}</>;
+  params,
+}: LayoutProps<'/[locale]'>) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  setRequestLocale(locale);
+
+  return (
+    <html
+      lang={locale}
+      className={`${interTight.variable} ${inter.variable}`}
+    >
+      <body>
+        <NextIntlClientProvider>
+          {children}
+        </NextIntlClientProvider>
+      </body>
+    </html>
+  );
 }

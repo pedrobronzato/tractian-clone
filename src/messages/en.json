@@ -1,0 +1,240 @@
+{
+  "header": {
+    "navigation": {
+      "solutions": "Solutions",
+      "whoWeServe": "Who We Serve",
+      "resources": "Resources",
+      "company": "Company",
+      "pricing": "Pricing"
+    },
+    "products": {
+      "conditionMonitoring": {
+        "name": "Tractian Condition Monitoring",
+        "features": {
+          "vibrationSensor": {
+            "title": "Vibration Sensor & Analysis",
+            "description": "All the tools you need to remotely monitor machine health."
+          },
+          "aiDetection": {
+            "title": "AI Failure Detection",
+            "description": "Spot issues early, trigger automatic alerts."
+          },
+          "reliability": {
+            "title": "Reliability & Root Cause Analysis",
+            "description": "Get to the why faster, build your reliability program."
+          },
+          "downtime": {
+            "title": "Downtime Prevention & Reporting",
+            "description": "Uncover failure trends, act before breakdowns happen."
+          },
+          "sensor": {
+            "title": "Sensor Specifications",
+            "description": "Monitor real-time vibration, temperature, runtime, and RPM."
+          }
+        }
+      },
+      "cmms": {
+        "name": "Tractian CMMS",
+        "features": {
+          "troubleshooting": {
+            "title": "Troubleshooting & SOPs",
+            "description": "Guide technicians with smart SOPs and checklists."
+          },
+          "workOrder": {
+            "title": "Work Order Management",
+            "description": "Plan, assign, and track every work order in one place."
+          },
+          "inventory": {
+            "title": "Parts Inventory Management",
+            "description": "Track critical parts and link them to maintenance tasks."
+          },
+          "maintenance": {
+            "title": "Preventive Maintenance",
+            "description": "Automate tasks, prevent failures, and cut downtime."
+          },
+          "integrations": {
+            "title": "Integrations",
+            "description": "Connect Tractian with ERPs, sensors, and data systems."
+          }
+        }
+      },
+      "oee": {
+        "name": "Tractian OEE",
+        "features": {
+          "production": {
+            "title": "AI Production Tracking",
+            "description": "Get status of production, lines, stations with live insights."
+          },
+          "operator": {
+            "title": "Operator Performance",
+            "description": "Connect and empower the frontline."
+          },
+          "quality": {
+            "title": "Digitized Quality",
+            "description": "Take quality forms and measurements digital."
+          },
+          "dashboards": {
+            "title": "Custom Dashboards",
+            "description": "Drive operations with real-time data reports."
+          },
+          "analytics": {
+            "title": "Utility & Process Analytics",
+            "description": "Analyze energy consumption and process metrics."
+          }
+        }
+      }
+    },
+    "menu": {
+      "solutions": {
+        "conditionMonitoring": {
+          "section": "Traction Condition Monitoring",
+          "items": {
+            "vibrationSensor": {
+              "title": "Vibration Sensor & Analysis",
+              "description": "All the tools you need to remotely monitor machine health."
+            },
+            "aiFailureDetection": {
+              "title": "AI Failure Detection",
+              "description": "Spot issues early, trigger automatic alerts."
+            },
+            "reliabilityAnalysis": {
+              "title": "Reliability & Root Cause Analysis",
+              "description": "Get to the why faster, build your reliability program."
+            },
+            "downtimePrevention": {
+              "title": "Downtime Prevention & Reporting",
+              "description": "Uncover failure trends, act before breakdowns happen."
+            },
+            "sensorSpecifications": {
+              "title": "Sensor Specifications",
+              "description": "Monitor real-time vibration, temperature, runtime, and RPM."
+            }
+          }
+        },
+        "cmms": {
+          "section": "Traction CMMS",
+          "items": {
+            "troubleshooting": {
+              "title": "Troubleshooting & SOPs",
+              "description": "Guide technicians with smart SOPs and checklists."
+            },
+            "workOrderManagement": {
+              "title": "Work Order Management",
+              "description": "Plan, assign, and track every work order in one place."
+            },
+            "partsInventory": {
+              "title": "Parts Inventory Management",
+              "description": "Track critical parts and link them to maintenance tasks."
+            },
+            "preventiveMaintenance": {
+              "title": "Preventive Maintenance",
+              "description": "Automate tasks, prevent failures, and cut downtime."
+            },
+            "integrations": {
+              "title": "Integrations",
+              "description": "Connect Tractian with ERPs, sensors, and data systems."
+            }
+          }
+        },
+        "oee": {
+          "section": "Traction OEE",
+          "items": {
+            "aiProductionTracking": {
+              "title": "AI Production Tracking",
+              "description": "Get status of production, lines, stations with live insights."
+            },
+            "operatorPerformance": {
+              "title": "Operator Performance",
+              "description": "Connect and empower the frontline."
+            },
+            "digitizedQuality": {
+              "title": "Digitized Quality",
+              "description": "Take quality forms and measurements digital."
+            },
+            "customDashboards": {
+              "title": "Custom Dashboards",
+              "description": "Drive operations with real-time data reports."
+            },
+            "utilityAnalytics": {
+              "title": "Utility & Process Analytics",
+              "description": "Analyze energy consumption and process metrics."
+            }
+          }
+        }
+      },
+      "whoWeServe": {
+        "byRole": {
+          "section": "By Role",
+          "items": {
+            "plantManager": "Plant Manager",
+            "reliabilityEngineer": "Reliability Engineer",
+            "maintenanceEngineer": "Maintenance Engineer",
+            "manufacturingEngineer": "Manufacturing Engineer"
+          }
+        },
+        "bySector": {
+          "section": "By Sector",
+          "items": {
+            "automotive": "Automotive & Parts",
+            "chemicals": "Chemicals",
+            "facilities": "Facilities",
+            "fleet": "Fleet",
+            "foodBeverage": "Food & Beverage",
+            "heavyEquipment": "Heavy Equipment",
+            "manufacturing": "Manufacturing",
+            "millsAgriculture": "Mills & Agriculture",
+            "miningMetals": "Mining & Metals",
+            "oilGas": "Oil & Gas"
+          }
+        }
+      },
+      "resources": {
+        "resourcesCenter": {
+          "section": "Resources Center",
+          "items": {
+            "caseStudies": "Case Studies",
+            "ebooks": "Ebooks",
+            "blog": "Blog",
+            "templates": "Templates",
+            "calculators": "Calculators",
+            "eventsWebinars": "Events & Webinars",
+            "sops": "SOPs",
+            "chatgptPlugins": "ChatGPT Plugins"
+          }
+        },
+        "customerHub": {
+          "section": "Customer Hub",
+          "items": {
+            "productUpdates": "Product Updates",
+            "tractianAcademy": "Tractian Academy",
+            "helpCenter": "Help Center"
+          }
+        }
+      },
+      "company": {
+        "aboutTractian": {
+          "section": "About Tractian",
+          "items": {
+            "aboutUs": "About us",
+            "careers": "Careers",
+            "newsroom": "Newsroom"
+          }
+        },
+        "others": {
+          "section": "Others",
+          "items": {
+            "contactUs": "Contact us",
+            "referrals": "Referrals",
+            "trustCenter": "Trust center"
+          }
+        }
+      },
+      "pricing": {
+        "items": {
+          "conditionMonitoring": "Condition Monitoring",
+          "cmmsSoftware": "CMMS Software"
+        }
+      }
+    }
+  }
+}

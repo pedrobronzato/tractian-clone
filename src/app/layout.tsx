@@ -1,5 +1,5 @@
 import './globals.css';
-import { interTight, inter } from './fonts';
+import { NextIntlClientProvider } from 'next-intl';
 
 export default function RootLayout({
   children,
@@ -7,15 +7,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${interTight.variable} ${inter.variable}`}
-    >
-      <link
-        rel="icon"
-        href="https://tractian.com/favicon.ico"
-      />
-      <body>{children}</body>
+    <html lang="en">
+      <head>
+        <link
+          rel="icon"
+          href="https://tractian.com/favicon.ico"
+        />
+      </head>
+      <NextIntlClientProvider>
+        <body>{children}</body>
+      </NextIntlClientProvider>
     </html>
   );
 }

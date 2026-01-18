@@ -1,0 +1,240 @@
+{
+  "header": {
+    "navigation": {
+      "solutions": "Soluciones",
+      "whoWeServe": "Industrias",
+      "resources": "Recursos",
+      "company": "Compañía",
+      "pricing": "Precios"
+    },
+    "products": {
+      "conditionMonitoring": {
+        "name": "Monitoreo de Condiciones Tractian",
+        "features": {
+          "vibrationSensor": {
+            "title": "Sensor y Análisis de Vibración",
+            "description": "Todas las herramientas necesarias para monitorear remotamente la salud de las máquinas."
+          },
+          "aiDetection": {
+            "title": "Detección de Fallos por IA",
+            "description": "Identifique problemas temprano, active alertas automáticas."
+          },
+          "reliability": {
+            "title": "Análisis de Confiabilidad y Causa Raíz",
+            "description": "Llegue al porqué más rápido, construya su programa de confiabilidad."
+          },
+          "downtime": {
+            "title": "Prevención de Tiempo de Inactividad e Informes",
+            "description": "Descubra tendencias de fallos, actúe antes de que ocurran averías."
+          },
+          "sensor": {
+            "title": "Especificaciones del Sensor",
+            "description": "Monitoree vibración en tiempo real, temperatura, tiempo de ejecución y RPM."
+          }
+        }
+      },
+      "cmms": {
+        "name": "CMMS Tractian",
+        "features": {
+          "troubleshooting": {
+            "title": "Solución de Problemas y POEs",
+            "description": "Guíe a los técnicos con POEs inteligentes y listas de verificación."
+          },
+          "workOrder": {
+            "title": "Gestión de Órdenes de Trabajo",
+            "description": "Planifique, asigne y rastree cada orden de trabajo en un solo lugar."
+          },
+          "inventory": {
+            "title": "Gestión de Inventario de Piezas",
+            "description": "Rastree piezas críticas y vincúlelas a tareas de mantenimiento."
+          },
+          "maintenance": {
+            "title": "Mantenimiento Preventivo",
+            "description": "Automatice tareas, prevenga fallos y reduzca el tiempo de inactividad."
+          },
+          "integrations": {
+            "title": "Integraciones",
+            "description": "Conecte Tractian con ERPs, sensores y sistemas de datos."
+          }
+        }
+      },
+      "oee": {
+        "name": "OEE Tractian",
+        "features": {
+          "production": {
+            "title": "Seguimiento de Producción por IA",
+            "description": "Obtenga el estado de producción, líneas, estaciones con información en vivo."
+          },
+          "operator": {
+            "title": "Rendimiento del Operador",
+            "description": "Conecte y empodere a la primera línea."
+          },
+          "quality": {
+            "title": "Calidad Digitalizada",
+            "description": "Transforme formularios y mediciones de calidad en digital."
+          },
+          "dashboards": {
+            "title": "Paneles Personalizados",
+            "description": "Impulse operaciones con informes de datos en tiempo real."
+          },
+          "analytics": {
+            "title": "Análisis de Servicios y Procesos",
+            "description": "Analice el consumo de energía y métricas de procesos."
+          }
+        }
+      }
+    },
+    "menu": {
+      "solutions": {
+        "conditionMonitoring": {
+          "section": "Monitoreo de Condiciones Tractian",
+          "items": {
+            "vibrationSensor": {
+              "title": "Sensor y Análisis de Vibración",
+              "description": "Todas las herramientas necesarias para monitorear remotamente la salud de las máquinas."
+            },
+            "aiFailureDetection": {
+              "title": "Detección de Fallos por IA",
+              "description": "Identifique problemas temprano, active alertas automáticas."
+            },
+            "reliabilityAnalysis": {
+              "title": "Análisis de Confiabilidad y Causa Raíz",
+              "description": "Llegue al porqué más rápido, construya su programa de confiabilidad."
+            },
+            "downtimePrevention": {
+              "title": "Prevención de Tiempo de Inactividad e Informes",
+              "description": "Descubra tendencias de fallos, actúe antes de que ocurran averías."
+            },
+            "sensorSpecifications": {
+              "title": "Especificaciones del Sensor",
+              "description": "Monitoree vibración en tiempo real, temperatura, tiempo de ejecución y RPM."
+            }
+          }
+        },
+        "cmms": {
+          "section": "CMMS Tractian",
+          "items": {
+            "troubleshooting": {
+              "title": "Solución de Problemas y POEs",
+              "description": "Guíe a los técnicos con POEs inteligentes y listas de verificación."
+            },
+            "workOrderManagement": {
+              "title": "Gestión de Órdenes de Trabajo",
+              "description": "Planifique, asigne y rastree cada orden de trabajo en un solo lugar."
+            },
+            "partsInventory": {
+              "title": "Gestión de Inventario de Piezas",
+              "description": "Rastree piezas críticas y vincúlelas a tareas de mantenimiento."
+            },
+            "preventiveMaintenance": {
+              "title": "Mantenimiento Preventivo",
+              "description": "Automatice tareas, prevenga fallos y reduzca el tiempo de inactividad."
+            },
+            "integrations": {
+              "title": "Integraciones",
+              "description": "Conecte Tractian con ERPs, sensores y sistemas de datos."
+            }
+          }
+        },
+        "oee": {
+          "section": "OEE Tractian",
+          "items": {
+            "aiProductionTracking": {
+              "title": "Seguimiento de Producción por IA",
+              "description": "Obtenga el estado de producción, líneas, estaciones con información en vivo."
+            },
+            "operatorPerformance": {
+              "title": "Rendimiento del Operador",
+              "description": "Conecte y empodere a la primera línea."
+            },
+            "digitizedQuality": {
+              "title": "Calidad Digitalizada",
+              "description": "Transforme formularios y mediciones de calidad en digital."
+            },
+            "customDashboards": {
+              "title": "Paneles Personalizados",
+              "description": "Impulse operaciones con informes de datos en tiempo real."
+            },
+            "utilityAnalytics": {
+              "title": "Análisis de Servicios y Procesos",
+              "description": "Analice el consumo de energía y métricas de procesos."
+            }
+          }
+        }
+      },
+      "whoWeServe": {
+        "byRole": {
+          "section": "Por Función",
+          "items": {
+            "plantManager": "Gerente de Planta",
+            "reliabilityEngineer": "Ingeniero de Confiabilidad",
+            "maintenanceEngineer": "Ingeniero de Mantenimiento",
+            "manufacturingEngineer": "Ingeniero de Manufactura"
+          }
+        },
+        "bySector": {
+          "section": "Por Sector",
+          "items": {
+            "automotive": "Automotriz y Piezas",
+            "chemicals": "Químicos",
+            "facilities": "Instalaciones",
+            "fleet": "Flota",
+            "foodBeverage": "Alimentos y Bebidas",
+            "heavyEquipment": "Equipo Pesado",
+            "manufacturing": "Manufactura",
+            "millsAgriculture": "Molinos y Agricultura",
+            "miningMetals": "Minería y Metales",
+            "oilGas": "Petróleo y Gas"
+          }
+        }
+      },
+      "resources": {
+        "resourcesCenter": {
+          "section": "Centro de Recursos",
+          "items": {
+            "caseStudies": "Casos de Estudio",
+            "ebooks": "Ebooks",
+            "blog": "Blog",
+            "templates": "Plantillas",
+            "calculators": "Calculadoras",
+            "eventsWebinars": "Eventos y Webinars",
+            "sops": "POEs",
+            "chatgptPlugins": "Plugins ChatGPT"
+          }
+        },
+        "customerHub": {
+          "section": "Centro del Cliente",
+          "items": {
+            "productUpdates": "Actualizaciones de Producto",
+            "tractianAcademy": "Academia Tractian",
+            "helpCenter": "Centro de Ayuda"
+          }
+        }
+      },
+      "company": {
+        "aboutTractian": {
+          "section": "Acerca de Tractian",
+          "items": {
+            "aboutUs": "Acerca de nosotros",
+            "careers": "Carreras",
+            "newsroom": "Sala de Prensa"
+          }
+        },
+        "others": {
+          "section": "Otros",
+          "items": {
+            "contactUs": "Contáctenos",
+            "referrals": "Referencias",
+            "trustCenter": "Centro de Confianza"
+          }
+        }
+      },
+      "pricing": {
+        "items": {
+          "conditionMonitoring": "Monitoreo de Condiciones",
+          "cmmsSoftware": "Software CMMS"
+        }
+      }
+    }
+  }
+}

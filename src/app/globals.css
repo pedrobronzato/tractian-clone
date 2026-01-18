@@ -18,3 +18,34 @@
 body {
   @apply bg-background text-text-primary font-sans;
 }
+
+@layer utilities {
+  .text-body-sm {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .text-body-md {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .text-body-lg {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  .text-tag {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .border-b {
+    border-bottom-width: 1px;
+  }
+  @media (min-width: 1024px) {
+    .lg\:text-body-md {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+}
