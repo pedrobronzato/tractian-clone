@@ -11,7 +11,6 @@ export default function Benefits({ role }: BenefitsProps) {
   const t = useTranslations();
   const locale = useLocale();
   const content = getBenefitsContent(t, locale, role);
-  console.log(content, 'content');
 
   return (
     <section className="w-full bg-slate-100 px-4 py-12 lg:py-16">

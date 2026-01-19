@@ -9,7 +9,6 @@ export default function MobileAccordion({
   id,
   contentClassName,
   labelClassName,
-  containerClassName,
 }: {
   icon?: React.ReactNode;
   handleSelect: (id: string) => void;
@@ -19,7 +18,6 @@ export default function MobileAccordion({
   id: string;
   contentClassName?: string;
   labelClassName?: string;
-  containerClassName?: string;
 }) {
   return (
     <div className="w-full">

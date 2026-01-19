@@ -67,7 +67,7 @@ body {
   }
 
   .text-body-lg {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.5;
   }
   .text-tag {
@@ -103,6 +103,42 @@ body {
     font-size: 40px;
     line-height: 52px;
   }
+  .text-title-md {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .text-title-xs {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .yarl__container {
+    background-color: rgb(248, 250, 252);
+    max-width: 90%;
+    max-height: 90%;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 0px 50px 999px;
+    border-radius: 4px;
+  }
+  .yarl__slide {
+    background-color: white;
+  }
+
+  .yarl__button {
+    box-shadow: none !important;
+    filter: none !important;
+    max-height: 44px !important;
+  }
+
+  .yarl__button:disabled svg {
+    opacity: 0.3;
+  }
+  .text-quote {
+    font-size: 14px;
+    font-weight: regular;
+    font-style: italic;
+    line-height: 22px;
+  }
 
   .transition-all {
     transition-property: all;
@@ -113,6 +149,27 @@ body {
       1
     );
   }
+
+  .swiper-pagination {
+    position: relative !important;
+    margin-top: 24px !important;
+    bottom: auto !important;
+  }
+
+  .swiper-pagination-bullet {
+    width: 24px !important;
+    height: 2.6px !important;
+    border-radius: 2px !important;
+    background: #d1d5db !important;
+    opacity: 1 !important;
+    transition: width 0.3s ease;
+  }
+
+  .swiper-pagination-bullet-active {
+    width: 48px !important;
+    background: #2563eb !important;
+  }
+
   @media (min-width: 1024px) {
     .lg\:text-body-md {
       font-size: 16px;
@@ -121,6 +178,10 @@ body {
     .lg\:text-body-lg {
       font-size: 18px;
       line-height: 1.5;
+    }
+    .lg\:text-title-xs {
+      font-size: 20px;
+      line-height: 28px;
     }
   }
   @media (max-width: 1024px) {
@@ -132,9 +193,48 @@ body {
       font-size: 24px;
       line-height: 32px;
     }
+    .text-title-md {
+      font-size: 20px;
+      line-height: 28px;
+    }
     .text-body-md {
       font-size: 14px;
       line-height: 1.5;
+    }
+  }
+
+  .clients-carousel {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .clients-carousel__track {
+    display: flex;
+    width: max-content;
+    animation-name: clients-carousel-scroll;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  .clients-carousel__item {
+    width: 150px;
+    padding: 6px;
+    margin-left: 10px;
+    margin-right: 10px;
+    min-width: 130px;
+    height: 110px !important;
+    display: flex;
+    margin-top: -1.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @keyframes clients-carousel-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
     }
   }
 
