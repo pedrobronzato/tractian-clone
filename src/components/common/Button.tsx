@@ -17,7 +17,7 @@ export default function Button({
   disabled = false,
   fullWidth = false,
 }: ButtonProps) {
-  const baseStyles = `${fullWidth ? 'w-full' : 'max-w-fit'} rounded-sm w-full transition ease-in-out duration-150 disabled:cursor-not-allowed text-center text-body-md px-4 py-2`;
+  const baseStyles = `${fullWidth ? 'w-full' : 'max-w-fit'} cursor-pointer rounded-sm w-full transition ease-in-out duration-150 disabled:cursor-not-allowed text-center text-body-md px-4 py-2`;
 
   const variantStyles = {
     outline:
@@ -33,7 +33,7 @@ export default function Button({
       className={`${baseStyles} ${variantStyles[variant]}`}
     >
       {label}
-      {icon && <span className="inline-flex">{icon}</span>}
+      {icon && icon}
     </button>
   );
 }

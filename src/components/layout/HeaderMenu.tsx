@@ -8,8 +8,10 @@ interface MenuConfig {
 
 export default function HeaderMenu({
   selected,
+  setSelected,
 }: {
   selected: string | null;
+  setSelected: (selected: string | null) => void;
 }) {
   const t = useTranslations();
 
@@ -41,6 +43,10 @@ export default function HeaderMenu({
           </div>
         </div>
       </div>
+      <div
+        onClick={() => setSelected(null)}
+        className="bg-opacity-60 absolute h-screen w-full bg-black backdrop-blur-[1px]"
+      ></div>
     </div>
   );
 }

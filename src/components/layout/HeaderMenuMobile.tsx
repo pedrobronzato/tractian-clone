@@ -15,7 +15,6 @@ export default function HeaderMenuMobile({
   t: (key: string) => string;
 }) {
   const [opened, setOpened] = useState<string[]>([]);
-  if (!open) return null;
 
   const menuConfig = getMenuConfig(t);
 
@@ -35,7 +34,9 @@ export default function HeaderMenuMobile({
         overflow: 'hidden auto',
         paddingBottom: 'env(safe-area-inset-bottom)',
       }}
-      className="absolute top-[56px] left-0 z-[9999] bg-white transition-all duration-150"
+      className={`fixed top-[56px] right-0 z-[9999] bg-white transition-transform duration-200 ease-in-out ${
+        open ? 'translate-x-0' : 'translate-x-full'
+      }`}
     >
       <div className="pt-4">
         {navigationItems.map((item) => (

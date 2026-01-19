@@ -6,7 +6,7 @@ import {
 import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { interTight, inter } from '../fonts';
-
+import Header from '@/components/layout/Header';
 export default async function LocaleLayout({
   children,
   params,
@@ -25,7 +25,8 @@ export default async function LocaleLayout({
     >
       <body>
         <NextIntlClientProvider>
-          {children}
+          <Header />
+          <main>{children}</main>
         </NextIntlClientProvider>
       </body>
     </html>

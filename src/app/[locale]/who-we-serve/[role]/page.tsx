@@ -1,9 +1,20 @@
-import Header from '@/components/layout/Header';
+import Benefits from '@/components/who-we-serve/Benefits';
+import Hero from '@/components/who-we-serve/Hero';
 
-export default function WhoWeServePage() {
+interface PageProps {
+  params: Promise<{
+    role: string;
+  }>;
+}
+
+export default async function WhoWeServePage({
+  params,
+}: PageProps) {
+  const { role } = await params;
   return (
-    <div className="bg-slate-100">
-      <Header />
-    </div>
+    <>
+      <Hero role={role} />
+      <Benefits role={role} />
+    </>
   );
 }

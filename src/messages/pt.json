@@ -240,5 +240,44 @@
   "common": {
     "login": "Login",
     "getDemo": "Demonstração"
+  },
+  "whoWeServe": {
+    "plant-manager": {
+      "hero": {
+        "catchphrase": "MANTENHA OPERAÇÕES EM EXECUÇÃO. ATINJA SEUS OBJETIVOS.",
+        "title_1": "Para o Gerente de Planta",
+        "title_2": " Quem Quer Dirigir com",
+        "title_3": " Confiança",
+        "description_1": "Tome decisões mais inteligentes, mais rápido. Tractian te dá clareza, controle,",
+        "description_2": "e confiança - para que você possa liderar a planta e provar o ROI",
+        "button": "Obter uma demonstração",
+        "quote": "”A solução da Tractian nos proporciona maior visibilidade e confiabilidade operacional, além de contribuir significativamente para o aumento da disponibilidade dos ativos e a assertividade no planejamento.”",
+        "quote_author": "Jari S.",
+        "quote_author_job": "Diretor Agroindustrial",
+        "quote_author_company": "UISA"
+      },
+      "benefits": {
+        "catchphrase": "Por que os gestores de planta escolhem a Tractian",
+        "title": "Gere melhor a sua planta sem complicações",
+        "checklist": {
+          "0": {
+            "title": "Prova o ROI, não apenas o esforço",
+            "description": "Não continue discutindo investimentos em manutenção. Tractian dá-lhe números reais ligados a resultados reais - falhas evitadas, horas poupadas, recursos optimizados. É o tipo de dados que torna as conversas de orçamento mais fáceis."
+          },
+          "1": {
+            "title": "Antecipe a inatividade antes de se agravar",
+            "description": "Veja os primeiros sinais de falha e tome medidas antes de se transformar numa crise. Tractian ajuda o seu equipa a ir da resposta reactiva à planeamento proactivo - com menos surpresas e menos chamadas urgentes."
+          },
+          "2": {
+            "title": "Gere um equipa mais eficiente e eficaz",
+            "description": "O trabalho é escasso, o treino demora tempo e o turno é prejudicial. Tractian dá ao seu equipa ferramentas que são intuitivas e poderosas - ajudando-os a melhorar as suas habilidades, resolver problemas mais rapidamente, seguir planos claramente e entregar mais cada turno."
+          },
+          "3": {
+            "title": "Manteia os auditores simples, a conformidade coberta",
+            "description": "Tractian ajuda a padronizar os seus processos, organizar os registos de manutenção e gerar relatórios fiáveis - para que os auditores sejam mais fáceis, os riscos sejam reduzidos e a conformidade se torne parte da rotina diária."
+          }
+        }
+      }
+    }
   }
 }

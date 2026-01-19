@@ -7,6 +7,17 @@ const nextConfig: NextConfig = {
   images: {
     loader: 'custom',
     loaderFile: './imageLoader.js',
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname:
+          'tractian-webpage.s3.us-east-1.amazonaws.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'imgix.tractian.com',
+      },
+    ],
   },
 };
 

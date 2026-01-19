@@ -1,5 +1,5 @@
 import useMountHref from '@/hooks/mountHref';
-import ArrowLeft from '../../content/icons/ArrowLeft';
+import ArrowRightIcon from '@/content/icons/ArrowRight';
 export default function DetailedLink({
   icon,
   title,
@@ -32,7 +32,7 @@ export default function DetailedLink({
           >
             {title}
           </p>
-          <ArrowLeft />
+          <ArrowRightIcon />
         </div>
         <p className="text-tag text-slate-500">
           {subtitle || ''}

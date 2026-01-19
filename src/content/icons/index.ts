@@ -1,6 +1,6 @@
 export { default as AiIcon } from './AiIcon';
 export { default as ArrowDownIcon } from './ArrowDownIcon';
-export { default as ArrowLeft } from './ArrowLeft';
+export { default as ArrowLeft } from './ArrowRight';
 export { default as BlogIcon } from './BlogIcon';
 export { default as BookIcon } from './BookIcon';
 export { default as CalculatorIcon } from './CalculatorIcon';

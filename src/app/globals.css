@@ -42,11 +42,20 @@
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
 }
+
+.animate__slow {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+}
 body {
   @apply bg-background text-text-primary font-sans;
 }
 
 @layer utilities {
+  .font-inter-tight {
+    font-family: var(--font-inter-tight);
+  }
+
   .text-body-sm {
     font-size: 14px;
     line-height: 1.5;
@@ -70,8 +79,39 @@ body {
     border-bottom-width: 1px;
   }
 
+  .bg-opacity-60 {
+    background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
+    --tw-bg-opacity: 0.6;
+  }
+
   .rounded-sm {
     border-radius: 0.125rem;
+  }
+  .rounded-l-sm {
+    border-top-left-radius: 0.125rem;
+  }
+
+  .ease-in-out {
+    transition-timing-function: cubic-bezier(
+      0.4,
+      0,
+      0.2,
+      1
+    );
+  }
+  .text-title-lg {
+    font-size: 40px;
+    line-height: 52px;
+  }
+
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(
+      0.4,
+      0,
+      0.2,
+      1
+    );
   }
   @media (min-width: 1024px) {
     .lg\:text-body-md {
@@ -88,7 +128,18 @@ body {
       font-size: 14px;
       line-height: 1.5;
     }
+    .text-title-lg {
+      font-size: 24px;
+      line-height: 32px;
+    }
     .text-body-md {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
+
+  @media (max-width: 1536px) {
+    .md\:text-body-md {
       font-size: 14px;
       line-height: 1.5;
     }

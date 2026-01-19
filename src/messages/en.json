@@ -240,5 +240,44 @@
   "common": {
     "login": "Login",
     "getDemo": "Get Demo"
+  },
+  "whoWeServe": {
+    "plant-manager": {
+      "hero": {
+        "catchphrase": "KEEP OPERATIONS RUNNING. HIT YOUR TARGETS.",
+        "title_1": "For the Plant Manager",
+        "title_2": " Who Wants to Lead with",
+        "title_3": " Confidence",
+        "description_1": "Make smarter decisions, faster. Tractian gives you clarity, control,",
+        "description_2": "and confidence - so you can lead the plant and prove the ROI",
+        "button": "Get a demo",
+        "quote": "“With everything centralized within Tractian platform, we finally have the visibility to act fast, plan smarter, and show real results.”",
+        "quote_author": "Paul Morais",
+        "quote_author_job": "Plant Manager",
+        "quote_author_company": "The Fillo Factory"
+      },
+      "benefits": {
+        "catchphrase": "Why plant managers choose Tractian",
+        "title": "Run a tighter ship without extra burden",
+        "checklist": {
+          "0": {
+            "title": "Prove the ROI, not just the effort",
+            "description": "Stop debating maintenance investments. Tractian gives you real numbers tied to real results - failures prevented, hours saved, resources optimized. It’s the kind of data that makes budget conversations easier."
+          },
+          "1": {
+            "title": "Get ahead of downtime before it escalates",
+            "description": "See the earliest signs of failure and take action before it snowballs into a crisis. Tractian helps your team to go from reactive firefighting to proactive planning - with fewer surprises and fewer urgent calls."
+          },
+          "2": {
+            "title": "Run a leaner, more effective team",
+            "description": "Labor is tight, training takes time, and turnover hurts. Tractian gives your existing team tools that are intuitive and powerful - helping them improve their skills, solve problems faster, follow plans clearly, and deliver more every shift."
+          },
+          "3": {
+            "title": "Keep audits simple, compliance covered",
+            "description": "Tractian helps standardize your processes, organize maintenance records, and generate reliable reports - so audits are easier, risks are reduced, and compliance becomes part of the daily routine."
+          }
+        }
+      }
+    }
   }
 }

@@ -240,5 +240,44 @@
   "common": {
     "login": "Login",
     "getDemo": "Solicita una demo"
+  },
+  "whoWeServe": {
+    "plant-manager": {
+      "hero": {
+        "catchphrase": "MANTÉN OPERACIONES EN FUNCIONAMIENTO. ALCANZA TUS OBJETIVOS.",
+        "title_1": "Para o Gerente de Planta",
+        "title_2": " Quien Quiere Dirigir con",
+        "title_3": " Confianza",
+        "description_1": "Toma decisiones más inteligentes, más rápido. Tractian te da claridad, control,",
+        "description_2": "y confianza - para que puedas liderar la planta y probar el ROI",
+        "button": "Agenda una demo",
+        "quote": "”Ya no movemos nada si no vemos qué dice Tractian. Es parte de nuestras juntas operativas y decisiones de dirección.”",
+        "quote_author": "Ricardo Cházaro",
+        "quote_author_job": "Gerente de Planta",
+        "quote_author_company": "Cyplus Idesa"
+      },
+      "benefits": {
+        "catchphrase": "Por qué los gerentes de planta eligen Tractian",
+        "title": "Maneja mejor tu planta sin complicaciones",
+        "checklist": {
+          "0": {
+            "title": "Demuestra el ROI, no solo el esfuerzo",
+            "description": "No sigas discutiendo inversiones en mantenimiento. Tractian te da números reales ligados a resultados reales - fallas evitadas, horas ahorradas, recursos optimizados. Es el tipo de datos que hace que las conversaciones de presupuesto sean más fáciles."
+          },
+          "1": {
+            "title": "Lleva la parada antes de que se agrave",
+            "description": "Ve los primeros signos de falla y actúa antes de que se convierta en una crisis. Tractian ayuda a tu equipo a ir de la respuesta reactiva a la planificación proactiva - con menos sorpresas y menos llamadas urgentes."
+          },
+          "2": {
+            "title": "Maneja un equipo más eficiente y efectivo",
+            "description": "El trabajo es escaso, el entrenamiento toma tiempo y el turno es dañino. Tractian da a tu equipo herramientas que son intuitivas y poderosas - ayudándoles a mejorar sus habilidades, resolver problemas más rápido, seguir planes claramente y entregar más cada turno."
+          },
+          "3": {
+            "title": "Mantén los auditores simples, la cumpliencia cubierta",
+            "description": "Tractian ayuda a estandarizar tus procesos, organizar los registros de mantenimiento y generar informes confiables - así los auditores son más fáciles, los riesgos se reducen y la cumpliencia se convierte en parte de la rutina diaria."
+          }
+        }
+      }
+    }
   }
 }

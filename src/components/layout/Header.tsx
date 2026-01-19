@@ -3,16 +3,14 @@ import { getNavigationItems } from '@/content/Header';
 import DropdownButton from '../common/DropdownButton';
 import Logo from '../common/logo';
 import { useState } from 'react';
-import DropdownMenuButton from '../common/DropdownMenuButton';
-import GlobeIcon from '@/content/icons/GlobeIcon';
 import Button from '../common/Button';
 import Link from '../common/Link';
 import MenuIcon from '@/content/icons/MenuIcon';
 import HeaderMenu from './HeaderMenu';
 import { useTranslations } from 'next-intl';
 import HeaderMenuMobile from './HeaderMenuMobile';
-import { useLocaleOptions } from '@/hooks/locale';
 import LanguageSelector from '../common/LanguageSelector';
+import CloseIcon from '@/content/icons/CloseIcon';
 
 export default function Header() {
   const [selected, setSelected] = useState<string | null>(
@@ -22,7 +20,6 @@ export default function Header() {
     useState(false);
   const t = useTranslations();
   const navigationItems = getNavigationItems(t);
-  const localeOptions = useLocaleOptions();
 
   const handleSelect = (id: string) => {
     setSelected(selected === id ? null : id);
@@ -74,18 +71,19 @@ export default function Header() {
               setOpenMobileMenu(!openMobileMenu)
             }
           >
-            <MenuIcon />
+            {openMobileMenu ? <CloseIcon /> : <MenuIcon />}
           </div>
         </div>
       </div>
-      <HeaderMenu selected={selected} />
-      <div className="w-full overflow-hidden transition-all duration-150 lg:hidden">
-        <HeaderMenuMobile
-          open={openMobileMenu}
-          navigationItems={navigationItems}
-          t={t}
-        />
-      </div>
+      <HeaderMenu
+        selected={selected}
+        setSelected={setSelected}
+      />
+      <HeaderMenuMobile
+        open={openMobileMenu}
+        navigationItems={navigationItems}
+        t={t}
+      />
     </nav>
   );
 }
