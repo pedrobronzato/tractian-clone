@@ -53,7 +53,6 @@ export default function SectionMenu({
           isItemsSection &&
           isTitleSection;
         const maxWidth = section.maxWidth || '30%';
-        console.log(section);
         return (
           <div
             key={section.section || index}
