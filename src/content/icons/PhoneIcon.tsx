@@ -1,0 +1,20 @@
+export default function PhoneIcon() {
+  return (
+    <svg
+      data-name="Layer 1"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width="24"
+      height="24"
+      className="h-5 w-5"
+      strokeWidth="1.5"
+    >
+      <path
+        d="M19.64 21.25c-2.54 2.55-8.38.83-13-3.84S.2 6.9 2.75 4.36l2.78-2.79 5.37 5.37-2 2a2.18 2.18 0 0 0 0 3.06l3.1 3.1a2.18 2.18 0 0 0 3.07 0l2-2 5.37 5.37Z"
+        fill="none"
+        stroke="currentcolor"
+        strokeMiterlimit="10"
+      ></path>
+    </svg>
+  );
+}

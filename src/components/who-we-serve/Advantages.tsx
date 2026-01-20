@@ -13,9 +13,12 @@ export default function Advantages({
   return (
     <section className="w-full bg-slate-100 px-4 py-12 lg:py-16">
       <div className="mx-auto flex w-full max-w-2xl flex-col items-center gap-8 lg:max-w-6xl lg:gap-12">
-        <h2 className="text-title-md font-bold lg:text-center">
-          {content.title}
-        </h2>
+        <h2
+          className="text-title-md font-inter-tight font-bold lg:text-center"
+          dangerouslySetInnerHTML={{
+            __html: content.title,
+          }}
+        />
         <div className="gap flex h-auto w-full flex-col items-stretch gap-8 lg:flex-row lg:justify-between lg:gap-16">
           {content.advantages.map((advantage) => (
             <AdvantagesCard

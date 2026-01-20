@@ -18,7 +18,7 @@ export default function Steps({ role }: StepsProps) {
             {content.title}
           </p>
         )}
-        <h2 className="text-title-md max-w-[800px] text-left font-bold lg:mb-4 lg:text-center">
+        <h2 className="font-inter-tight text-title-md max-w-[800px] text-left font-bold lg:mb-4 lg:text-center">
           {content.header}
         </h2>
         <StepsCard steps={content.steps} />

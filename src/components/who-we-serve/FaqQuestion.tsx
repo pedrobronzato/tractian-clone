@@ -12,7 +12,7 @@ export default function FaqQuestion({
   const [isOpen, setIsOpen] = useState(false);
   return (
     <button
-      className="group w-full rounded-sm border border-slate-300 bg-transparent p-4 transition hover:border-blue-600"
+      className="group w-full cursor-pointer rounded-sm border border-slate-300 bg-transparent p-4 transition hover:border-blue-600"
       onClick={() => setIsOpen(!isOpen)}
     >
       <div className="mb-0 flex w-full items-center justify-between gap-3 transition-all">

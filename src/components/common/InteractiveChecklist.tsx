@@ -50,7 +50,7 @@ export default function InteractiveChecklist({
                   <CheckIcon />
                 </figure>
                 <h3
-                  className={`lg:text-body-lg lg:text-title-xs w-full flex-1 text-left text-[16px] font-medium transition-all duration-500 lg:font-semibold ${
+                  className={`lg:text-body-lg lg:text-title-xs font-inter-tight w-full flex-1 text-left text-[16px] font-medium transition-all duration-500 lg:font-semibold ${
                     isSelected
                       ? 'text-text-primary'
                       : 'text-slate-400'

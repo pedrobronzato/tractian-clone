@@ -1,10 +1,5 @@
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { getMenuConfig } from '@/content/MenuConfig';
-
-interface MenuConfig {
-  component: React.ReactNode;
-  maxWidth: 'full' | 'constrained';
-}
 
 export default function HeaderMenu({
   selected,
@@ -14,8 +9,9 @@ export default function HeaderMenu({
   setSelected: (selected: string | null) => void;
 }) {
   const t = useTranslations();
+  const locale = useLocale();
 
-  const menuConfig = getMenuConfig(t);
+  const menuConfig = getMenuConfig(t, locale);
 
   if (!selected || !menuConfig[selected]) return null;
 
@@ -36,6 +32,10 @@ export default function HeaderMenu({
         className={`relative ${isConstrained ? '' : 'bg-slate-50 shadow-lg lg:px-2'}`}
       >
         <div
+          className={`${isConstrained ? 'bg-opacity-60 absolute z-20 h-screen w-full bg-black backdrop-blur-[1px]' : 'hidden'}`}
+          onClick={() => setSelected(null)}
+        ></div>
+        <div
           className={`relative z-30 mx-auto w-full px-8 pt-8 pb-12 ${maxWidthClass} ${isConstrained ? 'bg-slate-50' : ''}`}
         >
           <div className="flex w-full gap-4 lg:justify-between">
@@ -44,8 +44,8 @@ export default function HeaderMenu({
         </div>
       </div>
       <div
+        className={`${!isConstrained ? 'bg-opacity-60 absolute z-20 h-screen w-full bg-black backdrop-blur-[1px]' : 'hidden'}`}
         onClick={() => setSelected(null)}
-        className="bg-opacity-60 absolute h-screen w-full bg-black backdrop-blur-[1px]"
       ></div>
     </div>
   );

@@ -19,7 +19,7 @@ export default function Benefits({ role }: BenefitsProps) {
           <p className="text-body-md text-blue-600 uppercase">
             {content.catchphrase}
           </p>
-          <h2 className="text-title-lg font-bold">
+          <h2 className="text-title-lg font-inter-tight font-bold">
             {content.title}
           </h2>
         </article>

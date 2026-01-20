@@ -1,7 +1,7 @@
 import { SectionMenuContent } from '@/content/HeaderMenu';
 import DetailedLink from '../common/DetailedLink';
 import Image from 'next/image';
-import useMountHref from '@/hooks/mountHref';
+import useMountHref from '@/hooks/useMountHref';
 
 export default function SectionMenu({
   content,
@@ -44,43 +44,59 @@ export default function SectionMenu({
 
   return (
     <div className="flex w-full flex-col gap-8 lg:flex-row lg:justify-between lg:gap-4">
-      {content.map((section, index) => (
-        <div
-          key={section.section || index}
-          className={`animate__animated animate__fadeIn animate__fast flex w-full flex-col gap-4 lg:gap-6 lg:border-l lg:border-slate-300 lg:pl-4 ${section.items.length <= 4 && section.section !== null ? 'max-w-full lg:max-w-[25%]' : ''}`}
-        >
-          {section.section && (
-            <p
-              className={`text-body-sm text-slate-500 uppercase lg:normal-case ${section.isImg ? 'lg:text-body-md' : ''}`}
-            >
-              {section.section}
-            </p>
-          )}
+      {content.map((section, index) => {
+        const isImageSection = section.isImg;
+        const isTitleSection = section.section !== null;
+        const isItemsSection = section.items.length <= 4;
+        const constrainedWidthSection =
+          !isImageSection &&
+          isItemsSection &&
+          isTitleSection;
+        const maxWidth = section.maxWidth || '30%';
+        console.log(section);
+        return (
           <div
-            className={`w-full gap-4 ${section.items.length <= 4 ? 'flex flex-col' : 'flex flex-col lg:grid lg:grid-cols-3'} ${section.isImg ? 'lg:flex-row' : ''}`}
+            key={section.section || index}
+            className="animate__animated animate__fadeIn animate__fast flex w-full flex-col gap-4 lg:gap-6 lg:border-l lg:border-slate-300 lg:pl-4"
+            style={
+              constrainedWidthSection
+                ? { maxWidth }
+                : undefined
+            }
           >
-            {section.items.map((item) =>
-              section.isImg ? (
-                <ImageContainer
-                  key={item.title}
-                  imgUrl={item.imgUrl}
-                  customHref={item.customHref}
-                  title={item.title}
-                  href={item.href}
-                />
-              ) : (
-                <DetailedLink
-                  key={item.title}
-                  href={item.href}
-                  customHref={item.customHref}
-                  title={item.title}
-                  icon={item.icon ? <item.icon /> : null}
-                />
-              ),
+            {section.section && (
+              <p
+                className={`text-body-sm text-slate-500 uppercase lg:normal-case ${section.isImg ? 'lg:text-body-md' : ''}`}
+              >
+                {section.section}
+              </p>
             )}
+            <div
+              className={`gap-4 ${section.items.length <= 4 ? 'flex flex-col' : 'flex flex-col lg:grid lg:grid-cols-3'} ${section.isImg ? 'w-[616px] lg:flex-row' : ''}`}
+            >
+              {section.items.map((item) =>
+                section.isImg ? (
+                  <ImageContainer
+                    key={item.title}
+                    imgUrl={item.imgUrl}
+                    customHref={item.customHref}
+                    title={item.title}
+                    href={item.href}
+                  />
+                ) : (
+                  <DetailedLink
+                    key={item.title}
+                    href={item.href}
+                    customHref={item.customHref}
+                    title={item.title}
+                    icon={item.icon ? <item.icon /> : null}
+                  />
+                ),
+              )}
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

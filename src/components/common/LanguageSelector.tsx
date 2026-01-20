@@ -3,7 +3,7 @@ import DropdownMenuButton from './DropdownMenuButton';
 import {
   useCurrentLocaleLabel,
   useLocaleOptions,
-} from '@/hooks/locale';
+} from '@/hooks/useLocale';
 import MobileAccordion from './MobileAccordion';
 import { useState } from 'react';
 

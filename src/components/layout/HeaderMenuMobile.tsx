@@ -4,19 +4,23 @@ import { getMenuConfig } from '@/content/MenuConfig';
 import { useState } from 'react';
 import LanguageSelector from '../common/LanguageSelector';
 import Button from '../common/Button';
+import { useDemoForm } from '@/hooks/useDemoForm';
+import { TranslationFunction } from '@/content/HeaderMenu';
 
 export default function HeaderMenuMobile({
   open,
   navigationItems,
   t,
+  locale,
 }: {
   open: boolean;
   navigationItems: NavItem[];
-  t: (key: string) => string;
+  t: TranslationFunction;
+  locale: string;
 }) {
   const [opened, setOpened] = useState<string[]>([]);
-
-  const menuConfig = getMenuConfig(t);
+  const { DemoFormComponent, openDemoForm } = useDemoForm();
+  const menuConfig = getMenuConfig(t, locale);
 
   const handleSelect = (id: string) => {
     setOpened((prev) =>
@@ -34,7 +38,7 @@ export default function HeaderMenuMobile({
         overflow: 'hidden auto',
         paddingBottom: 'env(safe-area-inset-bottom)',
       }}
-      className={`fixed top-[56px] right-0 z-[9999] bg-white transition-transform duration-200 ease-in-out ${
+      className={`fixed top-[56px] right-0 z-[9999] bg-white transition-transform duration-200 ease-in-out lg:hidden ${
         open ? 'translate-x-0' : 'translate-x-full'
       }`}
     >
@@ -55,20 +59,22 @@ export default function HeaderMenuMobile({
         <Button
           variant="outline"
           label={t('common.login')}
-          onClick={() => {
-            console.log('Login');
-          }}
+          onClick={() =>
+            window.open(
+              'https://app.tractian.com/login',
+              '_blank',
+            )
+          }
           fullWidth
         />
         <Button
           variant="filled"
           label={t('common.getDemo')}
-          onClick={() => {
-            console.log('Get Demo');
-          }}
+          onClick={openDemoForm}
           fullWidth
         />
       </div>
+      {DemoFormComponent}
     </div>
   );
 }

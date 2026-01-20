@@ -7,6 +7,7 @@ import Clients from '@/components/who-we-serve/Clients';
 import Steps from '@/components/who-we-serve/Steps';
 import Mission from '@/components/who-we-serve/Mission';
 import Faq from '@/components/who-we-serve/Faq';
+import DemoForm from '@/components/layout/DemoForm';
 
 interface PageProps {
   params: Promise<{

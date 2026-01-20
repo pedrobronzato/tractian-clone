@@ -13,10 +13,14 @@ export interface MenuConfig {
   maxWidth: 'full' | 'constrained';
 }
 
-type TranslationFunction = (key: string) => string;
+type TranslationFunction = {
+  (key: string): string;
+  raw<T = unknown>(key: string): T;
+};
 
 export const getMenuConfig = (
   t: TranslationFunction,
+  locale: string,
 ): Record<string, MenuConfig> => {
   return {
     solutions: {
@@ -30,7 +34,7 @@ export const getMenuConfig = (
     'who-we-serve': {
       component: (
         <SectionMenu
-          content={getWeserveSectionMenuContent(t)}
+          content={getWeserveSectionMenuContent(t, locale)}
         />
       ),
       maxWidth: 'full',

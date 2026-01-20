@@ -19,15 +19,8 @@ import WeyerIcon from './icons/WeyerIcon';
 
 type TranslationFunction = {
   (key: string): string;
-  raw(key: string): string;
+  raw<T = unknown>(key: string): T;
 };
-
-export const FEATURE_TABS_COUNT = 4;
-export const BENEFITS_CHECKLIST_COUNT = 4;
-export const ADVANTAGES_COUNT = 3;
-export const TESTIMONIALS_COUNT = 4;
-export const STEPS_COUNT = 4;
-export const FAQ_QUESTIONS_COUNT = 17;
 
 export const getHeroContent = (
   t: TranslationFunction,
@@ -93,30 +86,25 @@ export const getBenefitsContent = (
   locale: string = 'en',
   role: string = 'plant-manager',
 ) => {
+  const baseKey = `whoWeServe.${role}.benefits`;
+  const checklist =
+    t.raw<BenefitsChecklistItem[]>(
+      `${baseKey}.checklist`,
+    ) ?? [];
+
   return {
-    catchphrase: t(
-      `whoWeServe.${role}.benefits.catchphrase`,
-    ),
-    title: t(`whoWeServe.${role}.benefits.title`),
-    checklist: Array.from(
-      { length: BENEFITS_CHECKLIST_COUNT },
-      (_, index) => ({
-        title: t(
-          `whoWeServe.${role}.benefits.checklist.${index}.title`,
-        ),
-        description: t(
-          `whoWeServe.${role}.benefits.checklist.${index}.description`,
-        ),
-        img: getBenefitsChecklistImage(index, locale, role),
-      }),
-    ),
+    catchphrase: t(`${baseKey}.catchphrase`),
+    title: t(`${baseKey}.title`),
+    checklist: checklist.map((item, index) => ({
+      ...item,
+      img: getBenefitsChecklistImage(index, locale),
+    })),
   };
 };
 
 export const getBenefitsChecklistImage = (
   index: number,
   locale: string = 'en',
-  role: string = 'plant-manager',
 ) => {
   const baseUrl =
     'https://imgix.tractian.com/website/pages/who-we-serve/';
@@ -151,52 +139,54 @@ export const getBenefitsChecklistImage = (
   return `${baseUrl}${rolePath}/${normalizedLocale}/${fileName}${defaultParams}`;
 };
 
-const getTabItems = (
-  t: TranslationFunction,
-  baseKey: string,
-  maxItems = 10,
-): string[] | undefined => {
-  const items: string[] = [];
+type FeatureTab = {
+  title: string;
+  contentTitle: string;
+  contentDescription: string;
+  items?: string[];
+};
 
-  for (let i = 0; i < maxItems; i++) {
-    const key = `${baseKey}.items.${i}`;
-    const value = t(key);
+type BenefitsChecklistItem = {
+  title: string;
+  description: string;
+};
 
-    if (value === key) break;
-    items.push(value);
-  }
+type AdvantageItem = {
+  title: string;
+  description: string;
+};
 
-  return items.length ? items : undefined;
+type TestimonialContent = {
+  quote: string;
+  author: string;
+  authorJob: string;
+  authorCompany: string;
+};
+
+type StepItem = {
+  title: string;
+  description: string;
+};
+
+type FaqQuestion = {
+  title: string;
+  awnser: string;
 };
 
 export const getFeaturesContent = (
   t: TranslationFunction,
-  role: string = 'plant-manager',
+  role = 'plant-manager',
 ) => {
   const baseKey = `whoWeServe.${role}.features`;
 
+  const tabs = t.raw<FeatureTab[]>(`${baseKey}.tabs`) ?? [];
+
   return {
     title: t(`${baseKey}.title`),
-    tabs: Array.from(
-      { length: FEATURE_TABS_COUNT },
-      (_, index) => {
-        const tabKey = `${baseKey}.tabs.${index}`;
-
-        const descriptionKey = `${tabKey}.contentDescription`;
-        const description = t(descriptionKey);
-
-        return {
-          title: t(`${tabKey}.title`),
-          contentTitle: t(`${tabKey}.contentTitle`),
-          contentDescription:
-            description === descriptionKey
-              ? ''
-              : description,
-          items: getTabItems(t, tabKey),
-          img: getFeaturesTabImage(index, role),
-        };
-      },
-    ),
+    tabs: tabs.map((tab, index) => ({
+      ...tab,
+      img: getFeaturesTabImage(index, role),
+    })),
   };
 };
 
@@ -222,20 +212,15 @@ export const getAdvantagesContent = (
   role: string = 'plant-manager',
 ) => {
   const baseKey = `whoWeServe.${role}.advantages`;
+  const advantages =
+    t.raw<AdvantageItem[]>(`${baseKey}.advantages`) ?? [];
+
   return {
     title: t(`${baseKey}.title`),
-    advantages: Array.from(
-      { length: ADVANTAGES_COUNT },
-      (_, index) => {
-        return {
-          title: t(`${baseKey}.advantages.${index}.title`),
-          description: t(
-            `${baseKey}.advantages.${index}.description`,
-          ),
-          icon: getAdvantageIcon(index),
-        };
-      },
-    ),
+    advantages: advantages.map((advantage, index) => ({
+      ...advantage,
+      icon: getAdvantageIcon(index),
+    })),
   };
 };
 
@@ -250,42 +235,29 @@ export const getTestimonialsContent = (
   locale: string = 'en',
 ) => {
   const baseKey = `whoWeServe.${role}.testimonials`;
+  const testimonials =
+    t.raw<TestimonialContent[]>(
+      `${baseKey}.testimonials`,
+    ) ?? [];
+
   return {
     title: t(`${baseKey}.title`),
-    testimonials: Array.from(
-      { length: TESTIMONIALS_COUNT },
-      (_, index) => {
-        const testimonial: {
-          quote: string;
-          author: string;
-          authorJob: string;
-          authorCompany: string;
-          img: string;
-          icon?: React.ComponentType;
-        } = {
-          quote: t(
-            `${baseKey}.testimonials.${index}.quote`,
-          ),
-          author: t(
-            `${baseKey}.testimonials.${index}.author`,
-          ),
-          authorJob: t(
-            `${baseKey}.testimonials.${index}.authorJob`,
-          ),
-          authorCompany: t(
-            `${baseKey}.testimonials.${index}.authorCompany`,
-          ),
-          img: getTestimonialsImage(index, role, locale),
-        };
+    testimonials: testimonials.map((testimonial, index) => {
+      const enriched: TestimonialContent & {
+        img: string;
+        icon?: React.ComponentType;
+      } = {
+        ...testimonial,
+        img: getTestimonialsImage(index, locale),
+      };
 
-        const iconValue = getTestimonialIcon(index, locale);
-        if (iconValue) {
-          testimonial.icon = iconValue;
-        }
+      const iconValue = getTestimonialIcon(index, locale);
+      if (iconValue) {
+        enriched.icon = iconValue;
+      }
 
-        return testimonial;
-      },
-    ),
+      return enriched;
+    }),
   };
 };
 
@@ -310,7 +282,6 @@ const getTestimonialIcon = (
 
 const getTestimonialsImage = (
   index: number,
-  role: string = 'plant-manager',
   locale: string = 'en',
 ) => {
   const baseUrl = `https://imgix.tractian.com/website/pages/who-we-serve/`;
@@ -429,6 +400,7 @@ export const getStepsContent = (
   role: string = 'plant-manager',
 ) => {
   const baseKey = `whoWeServe.${role}.steps`;
+  const steps = t.raw<StepItem[]>(`${baseKey}.steps`) ?? [];
 
   let title: string | undefined;
   try {
@@ -444,17 +416,7 @@ export const getStepsContent = (
   return {
     ...(title && { title }),
     header: t(`${baseKey}.header`),
-    steps: Array.from(
-      { length: STEPS_COUNT },
-      (_, index) => {
-        return {
-          title: t(`${baseKey}.steps.${index}.title`),
-          description: t(
-            `${baseKey}.steps.${index}.description`,
-          ),
-        };
-      },
-    ),
+    steps,
   };
 };
 
@@ -475,19 +437,12 @@ export const getFaqContent = (
   role: string = 'plant-manager',
 ) => {
   const baseKey = `whoWeServe.${role}.faq`;
+  const questions =
+    t.raw<FaqQuestion[]>(`${baseKey}.questions`) ?? [];
+
   return {
     title: t(`${baseKey}.title`),
     header: t(`${baseKey}.header`),
-    questions: Array.from(
-      { length: FAQ_QUESTIONS_COUNT },
-      (_, index) => {
-        return {
-          title: t(`${baseKey}.questions.${index}.title`),
-          awnser: t.raw(
-            `${baseKey}.questions.${index}.awnser`,
-          ),
-        };
-      },
-    ),
+    questions,
   };
 };

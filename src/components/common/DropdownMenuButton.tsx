@@ -4,6 +4,7 @@ import {
   useState,
   useRef,
   useEffect,
+  useCallback,
   ReactNode,
 } from 'react';
 import ArrowDownIcon from '../../content/icons/ArrowDownIcon';
@@ -28,36 +29,53 @@ export default function DropdownMenuButton({
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const closeDropdown = useCallback(() => {
+    setIsOpen(false);
+  }, []);
+
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
+    if (!isOpen) return;
+
+    const handleClickOutside = (event: MouseEvent) => {
       if (
         containerRef.current &&
         !containerRef.current.contains(event.target as Node)
       ) {
-        setIsOpen(false);
+        closeDropdown();
       }
-    }
+    };
 
-    if (isOpen) {
-      document.addEventListener(
+    const handleEscapeKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        closeDropdown();
+      }
+    };
+
+    document.addEventListener(
+      'mousedown',
+      handleClickOutside,
+    );
+    document.addEventListener('keydown', handleEscapeKey);
+
+    return () => {
+      document.removeEventListener(
         'mousedown',
         handleClickOutside,
       );
-      return () =>
-        document.removeEventListener(
-          'mousedown',
-          handleClickOutside,
-        );
-    }
-  }, [isOpen]);
+      document.removeEventListener(
+        'keydown',
+        handleEscapeKey,
+      );
+    };
+  }, [isOpen, closeDropdown]);
 
   const handleToggle = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prev) => !prev);
   };
 
   const handleOptionClick = (option: MenuOption) => {
     option.onClick();
-    setIsOpen(false);
+    closeDropdown();
   };
 
   return (

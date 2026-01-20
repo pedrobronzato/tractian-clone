@@ -17,7 +17,7 @@ export default function Faq({ role }: FaqProps) {
           <p className="text-body-md text-center text-blue-600 uppercase">
             {content.title}
           </p>
-          <h2 className="text-title-md lg:text-title-lg text-center font-semibold lg:font-bold">
+          <h2 className="font-inter-tight text-title-lg md:text-title-md text-center font-semibold lg:font-bold">
             {content.header}
           </h2>
         </article>

@@ -49,6 +49,10 @@
 }
 body {
   @apply bg-background text-text-primary font-sans;
+  & main {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
 }
 
 @layer utilities {
@@ -76,7 +80,7 @@ body {
   }
 
   .border-b {
-    border-bottom-width: 1px;
+    border-bottom-width: 2px !important;
   }
 
   .bg-opacity-60 {
@@ -175,6 +179,10 @@ body {
       font-size: 16px;
       line-height: 1.5;
     }
+    .lg\:text-title-md {
+      font-size: 32px;
+      line-height: 40px;
+    }
     .lg\:text-body-lg {
       font-size: 18px;
       line-height: 1.5;
@@ -182,6 +190,10 @@ body {
     .lg\:text-title-xs {
       font-size: 20px;
       line-height: 28px;
+    }
+    .lg\:py-12 {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
     }
   }
   @media (max-width: 1024px) {
@@ -201,11 +213,43 @@ body {
       font-size: 14px;
       line-height: 1.5;
     }
+    .sm\:text-tag {
+      font-size: 12px;
+      line-height: 20px;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .sm\:border-b-blue-600 {
+      border-bottom-color: rgb(37 99 235);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .md\:bg-no-repeat {
+      background-repeat: no-repeat;
+    }
+    .md\:bg-cover {
+      background-size: cover;
+    }
+    .md\:bg-right {
+      background-position: 100%;
+    }
+  }
+
+  @media (min-width: 1535px) {
+    .\32xl\:bg-right-top {
+      background-position: 100% 0;
+    }
   }
 
   .clients-carousel {
     width: 100%;
     overflow: hidden;
+  }
+
+  .bg-slate-900\/70 {
+    background-color: rgba(15, 23, 42, 0.7);
   }
 
   .clients-carousel__track {
@@ -216,6 +260,95 @@ body {
     animation-iteration-count: infinite;
   }
 
+  .custom-phone-input {
+    min-height: 48px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    outline: 1px solid #94a3b8 !important;
+    border: none !important;
+    padding: 0.75rem !important;
+    color: #314158 !important;
+    font-size: 14px !important;
+    line-height: 24px !important;
+    border-top-right-radius: 0.125rem !important;
+    border-bottom-right-radius: 0.125rem !important;
+
+    @media (min-width: 1024px) {
+      font-size: 16px !important;
+    }
+  }
+  .custom-phone-input-error {
+    outline: 1px solid #ef4444 !important;
+    min-height: 48px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    border: none !important;
+    padding: 0.75rem !important;
+    color: #314158 !important;
+    font-size: 14px !important;
+    line-height: 24px !important;
+    border-top-right-radius: 0.125rem !important;
+    border-bottom-right-radius: 0.125rem !important;
+    @media (min-width: 1024px) {
+      font-size: 16px !important;
+    }
+  }
+
+  .custom-country-selector {
+    height: 48px !important;
+    box-sizing: border-box !important;
+    min-width: 62px !important;
+  }
+
+  .custom-country-selector-button {
+    height: 48px !important;
+    box-sizing: border-box !important;
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    outline: 1px solid #94a3b8 !important;
+    border: none !important;
+    & div {
+      display: flex !important;
+      column-gap: 0.25rem !important;
+    }
+  }
+  .custom-country-selector-button-error {
+    height: 48px !important;
+    box-sizing: border-box !important;
+    padding-left: 0.75rem !important;
+    border-right-color: #ef4444 !important;
+    padding-right: 0.75rem !important;
+    outline: 1px solid #94a3b8 !important;
+
+    & div {
+      display: flex !important;
+      column-gap: 0.25rem !important;
+    }
+  }
+
+  .custom-country-selector-list-item {
+    padding: 0.75rem !important;
+    color: rgb(100 116 139) !important;
+    font-size: 16px !important;
+  }
+
+  .mb-6 {
+    margin-bottom: 1.5rem;
+  }
+  .custom-country-selector-list-item-flag {
+    width: 1.5rem !important;
+    border-radius: 0 !important;
+  }
+
+  .custom-country-selector-list-item-country-name {
+    font-size: 16px !important;
+  }
+
+  .text-red-600 {
+    color: rgb(220 38 38) !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+  }
   .clients-carousel__item {
     width: 150px;
     padding: 6px;

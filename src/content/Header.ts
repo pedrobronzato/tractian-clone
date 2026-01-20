@@ -22,195 +22,95 @@ export interface NavItem {
     | 'resources';
 }
 
-type TranslationFunction = (key: string) => string;
+type TranslationFunctionWithRaw = {
+  (key: string): string;
+  raw<T = unknown>(key: string): T;
+};
+
+type ProductFeatureContent = {
+  id: string;
+  title: string;
+  description: string;
+};
+
+type ProductCategoryContent = {
+  id: string;
+  name: string;
+  features: ProductFeatureContent[];
+};
+
+type NavigationItemContent = {
+  id: string;
+  label: string;
+};
+
+const productIcons: Record<string, string> = {
+  'condition-monitoring': 'monitoring',
+  cmms: 'cmms',
+  oee: 'oee',
+};
+
+const productFeatureIcons: Record<
+  string,
+  Record<string, string>
+> = {
+  'condition-monitoring': {
+    vibrationSensor: 'vibration',
+    aiDetection: 'ai-detection',
+    reliability: 'reliability',
+    downtime: 'downtime',
+    sensor: 'sensor',
+  },
+  cmms: {
+    troubleshooting: 'troubleshooting',
+    workOrder: 'work-order',
+    inventory: 'inventory',
+    maintenance: 'maintenance',
+    integrations: 'integrations',
+  },
+  oee: {
+    production: 'production',
+    operator: 'operator',
+    quality: 'quality',
+    dashboards: 'dashboards',
+    analytics: 'analytics',
+  },
+};
+
+const navigationConfig: Record<
+  string,
+  Pick<NavItem, 'href' | 'dropdownContent'>
+> = {
+  solutions: { dropdownContent: 'solutions' },
+  'who-we-serve': { dropdownContent: 'who-we-serve' },
+  resources: { dropdownContent: 'resources' },
+  company: { href: 'about' },
+  pricing: { href: 'pricing' },
+};
 
 export const getProductsMenu = (
-  t: TranslationFunction,
-): ProductCategory[] => [
-  {
-    id: 'condition-monitoring',
-    name: t('header.products.conditionMonitoring.name'),
-    icon: 'monitoring',
-    features: [
-      {
-        icon: 'vibration',
-        title: t(
-          'header.products.conditionMonitoring.features.vibrationSensor.title',
-        ),
-        description: t(
-          'header.products.conditionMonitoring.features.vibrationSensor.description',
-        ),
-      },
-      {
-        icon: 'ai-detection',
-        title: t(
-          'header.products.conditionMonitoring.features.aiDetection.title',
-        ),
-        description: t(
-          'header.products.conditionMonitoring.features.aiDetection.description',
-        ),
-      },
-      {
-        icon: 'reliability',
-        title: t(
-          'header.products.conditionMonitoring.features.reliability.title',
-        ),
-        description: t(
-          'header.products.conditionMonitoring.features.reliability.description',
-        ),
-      },
-      {
-        icon: 'downtime',
-        title: t(
-          'header.products.conditionMonitoring.features.downtime.title',
-        ),
-        description: t(
-          'header.products.conditionMonitoring.features.downtime.description',
-        ),
-      },
-      {
-        icon: 'sensor',
-        title: t(
-          'header.products.conditionMonitoring.features.sensor.title',
-        ),
-        description: t(
-          'header.products.conditionMonitoring.features.sensor.description',
-        ),
-      },
-    ],
-  },
-  {
-    id: 'cmms',
-    name: t('header.products.cmms.name'),
-    icon: 'cmms',
-    features: [
-      {
-        icon: 'troubleshooting',
-        title: t(
-          'header.products.cmms.features.troubleshooting.title',
-        ),
-        description: t(
-          'header.products.cmms.features.troubleshooting.description',
-        ),
-      },
-      {
-        icon: 'work-order',
-        title: t(
-          'header.products.cmms.features.workOrder.title',
-        ),
-        description: t(
-          'header.products.cmms.features.workOrder.description',
-        ),
-      },
-      {
-        icon: 'inventory',
-        title: t(
-          'header.products.cmms.features.inventory.title',
-        ),
-        description: t(
-          'header.products.cmms.features.inventory.description',
-        ),
-      },
-      {
-        icon: 'maintenance',
-        title: t(
-          'header.products.cmms.features.maintenance.title',
-        ),
-        description: t(
-          'header.products.cmms.features.maintenance.description',
-        ),
-      },
-      {
-        icon: 'integrations',
-        title: t(
-          'header.products.cmms.features.integrations.title',
-        ),
-        description: t(
-          'header.products.cmms.features.integrations.description',
-        ),
-      },
-    ],
-  },
-  {
-    id: 'oee',
-    name: t('header.products.oee.name'),
-    icon: 'oee',
-    features: [
-      {
-        icon: 'production',
-        title: t(
-          'header.products.oee.features.production.title',
-        ),
-        description: t(
-          'header.products.oee.features.production.description',
-        ),
-      },
-      {
-        icon: 'operator',
-        title: t(
-          'header.products.oee.features.operator.title',
-        ),
-        description: t(
-          'header.products.oee.features.operator.description',
-        ),
-      },
-      {
-        icon: 'quality',
-        title: t(
-          'header.products.oee.features.quality.title',
-        ),
-        description: t(
-          'header.products.oee.features.quality.description',
-        ),
-      },
-      {
-        icon: 'dashboards',
-        title: t(
-          'header.products.oee.features.dashboards.title',
-        ),
-        description: t(
-          'header.products.oee.features.dashboards.description',
-        ),
-      },
-      {
-        icon: 'analytics',
-        title: t(
-          'header.products.oee.features.analytics.title',
-        ),
-        description: t(
-          'header.products.oee.features.analytics.description',
-        ),
-      },
-    ],
-  },
-];
+  t: TranslationFunctionWithRaw,
+): ProductCategory[] =>
+  (
+    t.raw<ProductCategoryContent[]>('header.products') ?? []
+  ).map((product) => ({
+    ...product,
+    icon: productIcons[product.id] ?? product.id,
+    features: product.features.map((feature) => ({
+      ...feature,
+      icon:
+        productFeatureIcons[product.id]?.[feature.id] ??
+        feature.id,
+    })),
+  }));
 
 export const getNavigationItems = (
-  t: TranslationFunction,
-): NavItem[] => [
-  {
-    id: 'solutions',
-    label: t('header.navigation.solutions'),
-    dropdownContent: 'solutions',
-  },
-  {
-    id: 'who-we-serve',
-    label: t('header.navigation.whoWeServe'),
-    dropdownContent: 'who-we-serve',
-  },
-  {
-    id: 'resources',
-    label: t('header.navigation.resources'),
-    dropdownContent: 'resources',
-  },
-  {
-    id: 'company',
-    label: t('header.navigation.company'),
-    href: 'about',
-  },
-  {
-    id: 'pricing',
-    label: t('header.navigation.pricing'),
-    href: 'pricing',
-  },
-];
+  t: TranslationFunctionWithRaw,
+): NavItem[] =>
+  (
+    t.raw<NavigationItemContent[]>('header.navigation') ??
+    []
+  ).map((item) => ({
+    ...item,
+    ...navigationConfig[item.id],
+  }));

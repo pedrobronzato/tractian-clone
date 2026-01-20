@@ -42,7 +42,7 @@ export default function Tabs({
               className={`ease relative col-span-1 flex w-full items-center justify-center border-b border-transparent bg-[#F4F4F9] px-1 pt-1 pb-[3px] transition-all duration-100 duration-300 sm:bg-transparent sm:bg-white sm:px-0 sm:py-0 sm:duration-300 lg:hover:bg-transparent ${activeTab === index ? 'sm:border-b-blue-600' : 'sm:border-b-slate-300'}`}
             >
               <button
-                className={`text-body-md sm:text-tag md:text-body-sm lg:text-body-md w-full cursor-pointer rounded-sm px-6 py-1.5 text-slate-500 transition-all duration-100 hover:text-slate-600 sm:w-auto sm:items-start sm:p-4 sm:duration-300 lg:rounded-none lg:px-2 xl:px-4 2xl:px-6 ${activeTab === index ? 'font-semibold text-slate-700' : ''}`}
+                className={`text-body-md md:text-body-sm lg:text-body-md w-full cursor-pointer rounded-sm px-6 py-1.5 text-slate-500 transition-all duration-100 hover:text-slate-600 sm:w-auto sm:items-start sm:p-4 sm:duration-300 lg:rounded-none lg:px-2 xl:px-4 2xl:px-6 ${activeTab === index ? 'bg-white font-semibold text-slate-700 sm:bg-transparent' : ''}`}
               >
                 {tab.title}
               </button>
@@ -57,7 +57,7 @@ export default function Tabs({
         <div className="animate__animated animate__fadeIn flex w-full flex-col items-center justify-between gap-8 transition duration-500 ease-in-out lg:min-h-[437px] lg:flex-row lg:gap-16">
           <div className="flex w-full flex-col gap-8 lg:max-w-[382px] lg:gap-12">
             <article className="flex flex-col items-center gap-4 lg:max-w-[382px] lg:items-start">
-              <h2 className="text-title-xs font-bold">
+              <h2 className="text-title-xs font-inter-tight font-bold">
                 {tabs[activeTab].contentTitle}
               </h2>
               <p className="text-body-md text-slate-500">

@@ -1,4 +1,4 @@
-import useMountHref from '@/hooks/mountHref';
+import useMountHref from '@/hooks/useMountHref';
 import ArrowRightIcon from '@/content/icons/ArrowRight';
 export default function DetailedLink({
   icon,
