@@ -13,12 +13,12 @@ export default function CloseIcon({
       <path
         d="M1 1L17 17M1 1L17 17"
         stroke="currentColor"
-        stroke-width="1.6"
+        strokeWidth="1.6"
       ></path>
       <path
         d="M1 17L17 1M1 17L17 1"
         stroke="currentColor"
-        stroke-width="1.6"
+        strokeWidth="1.6"
       ></path>
     </svg>
   );

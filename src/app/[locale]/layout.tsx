@@ -8,6 +8,7 @@ import { notFound } from 'next/navigation';
 import { interTight, inter } from '../fonts';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+
 export default async function LocaleLayout({
   children,
   params,
@@ -23,8 +24,15 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       className={`${interTight.variable} ${inter.variable}`}
+      suppressHydrationWarning
     >
-      <body>
+      <head>
+        <link
+          rel="icon"
+          href="https://tractian.com/favicon.ico"
+        />
+      </head>
+      <body suppressHydrationWarning>
         <NextIntlClientProvider>
           <Header />
           <main>{children}</main>

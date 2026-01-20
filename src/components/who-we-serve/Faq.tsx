@@ -9,7 +9,6 @@ interface FaqProps {
 export default function Faq({ role }: FaqProps) {
   const t = useTranslations();
   const content = getFaqContent(t, role);
-  console.log(content, 'content');
   return (
     <section className="relative w-full bg-slate-100 py-12 lg:py-16">
       <div className="mx-auto flex max-w-2xl flex-col items-center gap-8 px-4 lg:max-w-6xl lg:gap-16">

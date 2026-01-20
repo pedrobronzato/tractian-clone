@@ -10,12 +10,12 @@ export default function CheckIcon() {
       <path
         d="M2.02344 11.5L10.0234 19.5M2.02344 11.5L10.0234 19.5"
         stroke="#fff"
-        stroke-width="1.8"
+        strokeWidth="1.8"
       ></path>
       <path
         d="M9.02344 19.5L23.0234 5.5"
         stroke="#fff"
-        stroke-width="1.8"
+        strokeWidth="1.8"
       ></path>
     </svg>
   );

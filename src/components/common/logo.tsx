@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Logo() {
   return (
-    <Link href="/">
+    <Link href="https://tractian.com/">
       <figure className="fill-blue-600">
         <svg
           height="25"

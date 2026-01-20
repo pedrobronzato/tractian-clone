@@ -6,7 +6,7 @@ export default function XIcon() {
       xmlns="http://www.w3.org/2000/svg"
       className="h-6 w-6 text-slate-50 transition hover:text-blue-200"
     >
-      <g clip-path="url(#clip0_2040_28)">
+      <g clipPath="url(#clip0_2040_28)">
         <path
           d="M14.9475 10.587L24.2481 0H22.045L13.9659 9.19067L7.5179 0H0.0791016L9.83181 13.8993L0.0791016 25H2.28227L10.8085 15.2923L17.6195 25H25.0583M3.07744 1.62698H6.46212L22.0433 23.453H18.6578"
           fill="currentColor"

@@ -8,7 +8,7 @@ export default function UsFlag() {
       xmlns="http://www.w3.org/2000/svg"
       className="h-3 w-4"
     >
-      <g clip-path="url(#clip0_545_5962)">
+      <g clipPath="url(#clip0_545_5962)">
         <rect fill="#F8FAFC" height="16" width="24"></rect>
         <path
           d="M9.75098 2.47445V3.7116H23.9869V2.34863"
